@@ -1,0 +1,181 @@
+/*==========================================================
+
+ SUBSCRIBE TO https://youtube.com/c/programmercloud/
+ FOR AMAZING WEB DEVELOPMENT TUTORIALS 
+
+ ==========================================================*/
+
+/* Imports Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Source+Sans+Pro:wght@400;700&display=swap");
+
+/* Applies default styles to the entire document */
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #d6d6d6;
+  font-family: "Libre Baskerville", serif; /* Sets font family for most text */
+  font-family: "Source Sans Pro", sans-serif; /* Overrides font family for some text */
+}
+
+/* Creates a container element and aligns its contents vertically and horizontally */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Styles for the card element */
+.card {
+  width: 230px;
+  height: 325px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); /* Adds a shadow effect */
+  position: relative;
+  perspective: 1000px;
+  transform: perspective(1000px) translateY(0); /* Sets initial card perspective */
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease-in-out; /* Adds a smooth transition effect */
+}
+
+/* Styles for the dark version of the card element */
+.card.dark {
+  background-color: #272727;
+  color: #fbfbfb;
+}
+
+/* Styles for the purchase button in the dark version of the card element */
+.card.dark .purchase-button {
+  border: 1px solid indianred;
+}
+
+/* Styles for the light version of the card element */
+.card.light {
+  background-color: #fbfbfb;
+  color: #272727;
+}
+
+/* Styles for the purchase button in the light version of the card element */
+.card.light .purchase-button {
+  border: 1px solid indianred;
+}
+
+/* Styles for the container that holds multiple card elements */
+.card-container {
+  display: flex;
+}
+
+/* Styles for the wrapper element that contains each card element */
+.card-wrapper {
+  cursor: pointer;
+  margin: 0 20px;
+}
+
+/* Styles that trigger when hovering over a card wrapper element */
+.card-wrapper:hover .card {
+  transform: rotateY(179deg); /* Flips the card */
+  z-index: 2;
+}
+.card-wrapper:hover .card .text-overlay {
+  opacity: 0; /* Hides text overlay */
+  transform-style: preserve-3d;
+  z-index: 1;
+}
+.card-wrapper:hover .card .purchase-button-container {
+  opacity: 1; /* Shows the purchase button container */
+}
+
+/* Styles for the text overlay element */
+.text-overlay {
+  transform: perspective(1000px) translateY(0) translateZ(80px); /* Sets initial perspective for the text overlay */
+  transition: transform 0.8s ease-in-out, opacity 1s ease;
+  pointer-events: none;
+  width: 100%;
+  perspective: inherit;
+  padding-top: 50px;
+}
+
+/* Styles for the heading element h1 */
+h1 {
+  color: #272727;
+}
+
+/* Styles for the heading element h2 */
+h2 {
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Styles for the price element */
+
+.price {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin: 20px;
+}
+/* Styles for purchase button container which includes a purchase button, positioned absolutely at top left corner,
+with a hidden effect, and centered using flexbox */
+.purchase-button-container {
+  color: indianred;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  left: 0;
+  top: 0;
+  transform: perspective(1000px) rotateY(179deg) translateY(0) translateZ(80px);
+  opacity: 0;
+  z-index: -1;
+  transition: transform 0.8s ease-in-out, opacity 1s ease;
+  width: 100%;
+  height: 100%;
+}
+
+/* Styles for purchase button which has a padding, a rounded border radius, and hover effect */
+.purchase-button-container .purchase-button {
+  padding: 10px 40px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  cursor: pointer;
+}
+
+/* Styles for purchase button with light theme when hovered */
+.purchase-button-container .purchase-button.light:hover {
+  background-color: indianred;
+  color: #fbfbfb;
+}
+
+/* Styles for purchase button with dark theme when hovered */
+.purchase-button-container .purchase-button.dark:hover {
+  background-color: indianred;
+  color: #272727;
+}
+
+/* Styles for details text which includes a margin, flexbox alignment and color */
+.details-text {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px 10px;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  color: #858585;
+  font-size: 0.75rem;
+}
+
+/* Styles for small text with a smaller font size and color */
+small {
+  font-size: 0.75rem;
+  font-weight: 100;
+  color: #858585;
+}
+
+/* Styles for back h2 heading with a large font size and no top margin */
+.back-h2 {
+  font-size: 2rem;
+  margin-top: 0;
+}
